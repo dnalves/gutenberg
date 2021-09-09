@@ -11,11 +11,14 @@ import InnerSelectControl from '../../select-control';
 import InnerRangeControl from '../../range-control';
 import { StyledField } from '../../base-control/styles/base-control-styles';
 import { space } from '../utils/space';
+import Button from '../../button';
 import {
 	BackdropUI,
 	Container as InputControlContainer,
 	Input,
 } from '../../input-control/styles/input-control-styles';
+import InputControl from '../../input-control';
+import CONFIG from '../../utils/config-values';
 
 export const NumberControlWrapper = styled( NumberControl )`
 	${ InputControlContainer } {
@@ -81,8 +84,8 @@ export const ColorfulWrapper = styled.div`
 	.react-colorful__pointer {
 		height: 16px;
 		width: 16px;
-		border: 1.5px solid #ffffff;
-		box-shadow: 0px 0px 3px rgba( 0, 0, 0, 0.25 );
+		border: ${ CONFIG.borderWidthFocus } solid rgba( 255, 255, 255, 0 );
+		box-shadow: inset 0px 0px 0px ${ CONFIG.borderWidthFocus } #ffffff;
 	}
 
 	${ StyledField } {
@@ -90,4 +93,15 @@ export const ColorfulWrapper = styled.div`
 	}
 
 	${ inputHeightStyle }
+`;
+
+export const DetailsControlButton = styled( Button )`
+	&&&& {
+		min-width: ${ space( 6 ) };
+		padding: 0;
+	}
+`;
+
+export const ColorHexInputControl = styled( InputControl )`
+	width: 8em;
 `;
