@@ -101,6 +101,26 @@ export function useToolsPanel( props ) {
 		setMenuItems( items );
 	}, [ panelItems ] );
 
+	// Track whether optional controls, if any, are displayed or not.
+	const [
+		areOptionalControlsHidden,
+		setAreOptionalControlsHidden,
+	] = useState( false );
+
+	// Where no optional menu items are active, we display a plus icon
+	// to indicate the presence of further menu items.
+	useEffect( () => {
+		if ( menuItems.optional ) {
+			const optionalMenuItemsArray = Object.entries( menuItems.optional );
+			const newValue =
+				optionalMenuItemsArray.length > 0 &&
+				! Object.entries( menuItems.optional ).some(
+					( [ , isSelected ] ) => isSelected
+				);
+			setAreOptionalControlsHidden( newValue );
+		}
+	}, [ menuItems.optional ] );
+
 	// Toggle the checked state of a menu item which is then used to determine
 	// display of the item within the panel.
 	const toggleItem = ( label ) => {
@@ -139,6 +159,7 @@ export function useToolsPanel( props ) {
 		registerPanelItem,
 		deregisterPanelItem,
 		flagItemCustomization,
+		areOptionalControlsHidden,
 		hasMenuItems: panelItems.length,
 		isResetting: isResetting.current,
 	};
