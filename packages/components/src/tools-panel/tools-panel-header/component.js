@@ -2,7 +2,7 @@
  * WordPress dependencies
  */
 import { check, reset, moreVertical, plus } from '@wordpress/icons';
-import { __, sprintf } from '@wordpress/i18n';
+import { __, _x, sprintf } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -109,18 +109,23 @@ const ToolsPanelHeader = ( props, forwardedRef ) => {
 
 	const defaultItems = Object.entries( menuItems?.default || {} );
 	const optionalItems = Object.entries( menuItems?.optional || {} );
+	const dropDownMenuIcon = areOptionalControlsAvailableAndHidden
+		? plus
+		: moreVertical;
+	const dropDownMenuLabelText = areOptionalControlsAvailableAndHidden
+		? _x(
+				'Show and add options',
+				'Button label to reveal tool panel options'
+		  )
+		: _x( 'Show options', 'Button label to reveal tool panel options' );
 
 	return (
 		<h2 { ...headerProps } ref={ forwardedRef }>
 			{ labelText }
 			{ hasMenuItems && (
 				<DropdownMenu
-					icon={
-						areOptionalControlsAvailableAndHidden
-							? plus
-							: moreVertical
-					}
-					label={ labelText }
+					icon={ dropDownMenuIcon }
+					label={ dropDownMenuLabelText }
 					menuProps={ { className: dropdownMenuClassName } }
 				>
 					{ ( { onClose } ) => (
