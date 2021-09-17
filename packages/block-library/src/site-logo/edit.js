@@ -344,7 +344,11 @@ export default function LogoEdit( {
 				onSelect={ onSelectLogo }
 				onError={ onUploadError }
 			/>
-			<ToolbarButton onClick={ onRemoveLogo } icon={ trash } />
+			<ToolbarButton
+				title={ __( 'Remove logo' ) }
+				onClick={ onRemoveLogo }
+				icon={ trash }
+			/>
 		</BlockControls>
 	);
 
