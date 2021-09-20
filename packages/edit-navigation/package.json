@@ -56,5 +56,8 @@
 	},
 	"publishConfig": {
 		"access": "public"
-	}
+	},
+	"sideEffects": [
+		"src/hooks/remove-unsupported-transforms.js"
+	]
 }

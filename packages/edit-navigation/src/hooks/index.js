@@ -15,3 +15,4 @@ export { default as useMenuNotifications } from './use-menu-notifications';
 export { default as useSelectedMenuId } from './use-selected-menu-id';
 export { default as useMenuLocations } from './use-menu-locations';
 export { default as useNavigationEditorRootBlock } from './use-navigation-editor-root-block';
+export { default as removeSupportedTransforms } from './remove-unsupported-transforms';
