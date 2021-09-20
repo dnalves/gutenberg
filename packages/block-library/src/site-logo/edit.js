@@ -18,6 +18,7 @@ import {
 	Spinner,
 	ToggleControl,
 	ToolbarButton,
+	ToolbarGroup,
 	Placeholder,
 } from '@wordpress/components';
 import { useViewportMatch } from '@wordpress/compose';
@@ -344,9 +345,11 @@ export default function LogoEdit( {
 				onSelect={ onSelectLogo }
 				onError={ onUploadError }
 			/>
-			<ToolbarButton onClick={ onRemoveLogo }>
-				{ __( 'Remove' ) }
-			</ToolbarButton>
+			<ToolbarGroup>
+				<ToolbarButton onClick={ onRemoveLogo }>
+					{ __( 'Remove' ) }
+				</ToolbarButton>
+			</ToolbarGroup>
 		</BlockControls>
 	);
 
