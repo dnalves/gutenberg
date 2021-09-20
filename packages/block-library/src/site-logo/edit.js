@@ -32,7 +32,7 @@ import {
 } from '@wordpress/block-editor';
 import { useSelect, useDispatch } from '@wordpress/data';
 import { store as coreStore } from '@wordpress/core-data';
-import { siteLogo as icon, trash } from '@wordpress/icons';
+import { siteLogo as icon } from '@wordpress/icons';
 
 /**
  * Internal dependencies
@@ -344,11 +344,9 @@ export default function LogoEdit( {
 				onSelect={ onSelectLogo }
 				onError={ onUploadError }
 			/>
-			<ToolbarButton
-				title={ __( 'Remove logo' ) }
-				onClick={ onRemoveLogo }
-				icon={ trash }
-			/>
+			<ToolbarButton onClick={ onRemoveLogo }>
+				{ __( 'Remove' ) }
+			</ToolbarButton>
 		</BlockControls>
 	);
 
