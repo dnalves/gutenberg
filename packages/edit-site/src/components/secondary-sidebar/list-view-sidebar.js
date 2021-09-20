@@ -12,7 +12,6 @@ import {
 	useInstanceId,
 	useMergeRefs,
 } from '@wordpress/compose';
-import { memo } from '@wordpress/element';
 import { useDispatch } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 import { closeSmall } from '@wordpress/icons';
@@ -23,7 +22,7 @@ import { ESCAPE } from '@wordpress/keycodes';
  */
 import { store as editSiteStore } from '../../store';
 
-function ListViewSidebar() {
+export default function ListViewSidebar() {
 	const { setIsListViewOpened } = useDispatch( editSiteStore );
 
 	const { clearSelectedBlock, selectBlock } = useDispatch( blockEditorStore );
@@ -71,4 +70,3 @@ function ListViewSidebar() {
 		</div>
 	);
 }
-export default memo( ListViewSidebar );

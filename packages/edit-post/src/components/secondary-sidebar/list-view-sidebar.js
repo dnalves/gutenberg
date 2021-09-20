@@ -6,7 +6,6 @@ import {
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
 import { Button } from '@wordpress/components';
-import { memo } from '@wordpress/element';
 import {
 	useFocusOnMount,
 	useFocusReturn,
@@ -23,7 +22,7 @@ import { ESCAPE } from '@wordpress/keycodes';
  */
 import { store as editPostStore } from '../../store';
 
-function ListViewSidebar() {
+export default function ListViewSidebar() {
 	const { setIsListViewOpened } = useDispatch( editPostStore );
 
 	const { clearSelectedBlock, selectBlock } = useDispatch( blockEditorStore );
@@ -72,4 +71,3 @@ function ListViewSidebar() {
 		</div>
 	);
 }
-export default memo( ListViewSidebar );
